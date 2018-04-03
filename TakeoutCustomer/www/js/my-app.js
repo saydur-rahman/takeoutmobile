@@ -38,6 +38,7 @@ $$(document).on("ajaxComplete", function () {
 $$(document).on("pageInit", function (e) {
     /* SLIDE SLICK */
     /*================================*/
+    var page = e.detail.page;
     var slickOpts = {
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -69,8 +70,19 @@ $$(document).on("pageInit", function (e) {
                 values: ("PM AM").split(" ")
             },
         ]
-    }); 
+    });
+    var mainView = myApp.addView('.view-main', {
+        // Enable dynamic Navbar
+        dynamicNavbar: false
+    });
+    switch (page.name) {
+        case "loginpage":
+            loginpage(page);
+            break;
+        
+    }
 });
 
 // AND NOW WE INITIALIZE APP
 myApp.init();
+
