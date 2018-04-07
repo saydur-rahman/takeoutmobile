@@ -6,28 +6,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon" href="img/photos/apple-touch-icon.png" />
-	<link rel="apple-touch-startup-image" href="img/photos/apple-touch-startup-image-320x460.png" />
-	<meta name="mobile-web-app-capable" content="yes">
-	<link rel="shortcut icon" sizes="196x196" href="img/photos/196x196.png">
-	<link rel="shortcut icon" sizes="128x128" href="img/photos/128x128.png">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="img/photos/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" href="img/photos/apple-touch-startup-image-320x460.png" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="img/photos/196x196.png">
+    <link rel="shortcut icon" sizes="128x128" href="img/photos/128x128.png">
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#000000">
     <!-- Your app title -->
     <title>Comida</title>
-	
-	<!-- FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700' rel='stylesheet' type='text/css'>
     <!-- Path to Framework7 Library CSS, Material Theme -->
     <link rel="stylesheet" href="css/framework7.material.min.css">
     <!-- Path to Framework7 color related styles, Material Theme -->
     <link rel="stylesheet" href="css/framework7.material.colors.min.css">
-	<!-- Slick Carousel -->
-	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <!-- Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="fonts/flaticon.css">
     <link rel="stylesheet" href="css/base.css">
@@ -217,7 +217,6 @@
         </div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/lib/FacebookConnectPlugin.js"></script>
     <!-- Jquery-->
     <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
     <!-- Slick Carousel -->
@@ -228,25 +227,29 @@
     <script type="text/javascript" src="js/my-app.js"></script>
 
     <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '2064443280434625',
-                xfbml: true,
-                version: 'v2.12'
-            });
-            FB.AppEvents.logPageView();
-        };
+                                //window.fbAsyncInit = function () {
+                                //    FB.init({
+                                //        appId: '2064443280434625',
+                                //        xfbml: true,
+                                //        version: 'v2.12'
+                                //    });
+                                //    FB.AppEvents.logPageView();
+                                //};
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
+                                //(function (d, s, id) {
+                                //    var js, fjs = d.getElementsByTagName(s)[0];
+                                //    if (d.getElementById(id)) { return; }
+                                //    js = d.createElement(s); js.id = id;
+                                //    js.src = "https://connect.facebook.net/en_US/sdk.js";
+                                //    fjs.parentNode.insertBefore(js, fjs);
+                                //}(document, 'script', 'facebook-jssdk'));
     </script>
-    <script type="text/javascript" src="js/Login.js"></script>
 
+    <script type="text/javascript" src="js/Login.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/catagories.js"></script>
+    <script src="js/finished.js"></script>
 </body>
 
 </html>

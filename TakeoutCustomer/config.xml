@@ -103,4 +103,6 @@
     <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
     <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
   </platform>
+  <plugin name="phonegap-plugin-push" spec="~2.2.2" src="https://github.com/phonegap/phonegap-plugin-push.git" />
+  <plugin name="cordova-plugin-device" spec="~2.0.2-dev" src="https://github.com/apache/cordova-plugin-device.git" />
 </widget>

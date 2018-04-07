@@ -1,4 +1,6 @@
-"use strict";
+
+
+var apiBaseUrl = "http://localhost:59198/";
 
 /*===============================================*/
 /* APP INIT                                          */
@@ -6,7 +8,11 @@
 var myApp = new Framework7({
     material: true,
     init: false,
-    swipePanel: "left"
+    swipePanel: "left",
+    toast: {
+        closeTimeout: 3000,
+        closeButton: true
+    }
 });
 
 /*===============================================*/
@@ -51,7 +57,7 @@ $$(document).on("pageInit", function (e) {
     $("#walkthrough-items").slick(slickOpts);
 
     /* CALENDAR */
-   /*================================*/
+    /*================================*/
     var calendarDefault = myApp.calendar({
         input: "#calendar-default"
     });
@@ -79,10 +85,35 @@ $$(document).on("pageInit", function (e) {
         case "loginpage":
             loginpage(page);
             break;
-        
+
+        case "register":
+            registerpage(page);
+            break;
+
+        case "dashboard":
+            dashboardpage(page);
+            break;
+
+        case "categories":
+            catagorypage(page);
+            break;
+
+        case "finished":
+            finishedpage(page);
+            break;
     }
 });
 
+var regUrl = apiBaseUrl + "api/account/register";
+var loginUrl = apiBaseUrl + "token";
+var useInvoice = apiBaseUrl + "api/invoice/useinvoice/";
+var currentPoint = apiBaseUrl + "api/invoice/getPoints";
+var catagoryURL = apiBaseUrl + "api/menu/Catagory";
+var finishedURL = apiBaseUrl + "api/menu/Finished/";
+
+
 // AND NOW WE INITIALIZE APP
 myApp.init();
+
+
 
