@@ -32,6 +32,8 @@
     <link rel="stylesheet" href="fonts/flaticon.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/Custom.css">
+
 </head>
 
 <body class="theme-black">
@@ -57,7 +59,7 @@
                 <div class="margin-top-30">
                     <img src="img/photos/user.png" alt="user" width="80" height="80">
                 </div>
-                <div class="text-small text-capitalize">
+                <div class="text-small text-capitalize" id="txtUserName">
                     magdeline Doe
                 </div>
                 <div class="text-extrat-thiny gray-text text-capitalize icon-location">
@@ -69,18 +71,18 @@
         <div class="list-block list-menu">
             <ul>
                 <li>
-                    <div class="item-content">
+                    <div class="item-content" id="btnHome">
                         <div class="item-media">
                             <i class="flaticon-house-outline"></i>
                         </div>
                         <div class="item-inner no-margin">
                             <div class="item-title text-small">
-                                <a href="#">Home</a>
+                                <label href="#" >Home</label>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
+                <!--<li>
                     <div class="item-content">
                         <div class="item-media">
                             <i class="flaticon-how"></i>
@@ -91,32 +93,32 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>-->
                 <li>
-                    <div class="item-content">
+                    <div class="item-content" id="btnStoreLocator">
                         <div class="item-media">
                             <i class="flaticon-shop"></i>
                         </div>
                         <div class="item-inner no-margin">
                             <div class="item-title text-small">
-                                <a href="restaurants.html" class="close-panel no-animation">Restaurants</a>
+                                <label href="#"  class="close-panel no-animation">Store Locator</label>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="item-content">
+                    <div class="item-content" id="btnMenuSlide">
                         <div class="item-media">
                             <i class="flaticon-list"></i>
                         </div>
                         <div class="item-inner no-margin">
                             <div class="item-title text-small">
-                                <a href="food-categories.html" class="close-panel no-animation">Categories</a>
+                                <label class="close-panel no-animation">Our Menu</label>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li>
+                <!--<li>
                     <div class="item-content">
                         <div class="item-media">
                             <i class="flaticon-search"></i>
@@ -127,8 +129,8 @@
                             </div>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li>-->
+                <!--<li>
                     <div class="item-content">
                         <div class="item-media">
                             <i class="flaticon-star"></i>
@@ -139,8 +141,8 @@
                             </div>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li>-->
+                <!--<li>
                     <div class="item-content">
                         <div class="item-media">
                             <i class="flaticon-cooker"></i>
@@ -151,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li>-->
                 <li>
                     <div class="item-content">
                         <div class="item-media">
@@ -159,7 +161,7 @@
                         </div>
                         <div class="item-inner no-margin">
                             <div class="item-title text-small">
-                                <a href="#">Logout</a>
+                                <a href="#" id="btnLogout">Logout</a>
                             </div>
                         </div>
                     </div>
@@ -186,14 +188,11 @@
                         </div>
                         <div class="clearfix"></div>
                         <div class="app-cover-content">
-                            <div class="margin-bottom-60"><img src="img/photos/logo.png" alt="Carlitos" /></div>
+                            <div class="margin-bottom-60"><img src="img/photos/logo.png" alt="Carlitos" style="width: 50%; margin-top: 40%"/></div>
                             <div class="text-medium margin-bottom-15">
 
                             </div>
-                            <div class="margin-bottom-60">
-
-                            </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: 50%">
                                 <div class="col-50">
                                     <a href="login.html" class="button button-fill color-white black-text text-thiny">Login in</a>
                                 </div>

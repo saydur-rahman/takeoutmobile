@@ -77,6 +77,8 @@ $$(document).on("pageInit", function (e) {
             },
         ]
     });
+
+    
     var mainView = myApp.addView('.view-main', {
         // Enable dynamic Navbar
         dynamicNavbar: false
@@ -110,10 +112,25 @@ var useInvoice = apiBaseUrl + "api/invoice/useinvoice/";
 var currentPoint = apiBaseUrl + "api/invoice/getPoints";
 var catagoryURL = apiBaseUrl + "api/menu/Catagory";
 var finishedURL = apiBaseUrl + "api/menu/Finished/";
+var userUrl = apiBaseUrl + "api/account/GetCustomerInfo";
+var rateUrl = apiBaseUrl + "api/menu/rate/";
 
 
 // AND NOW WE INITIALIZE APP
 myApp.init();
+
+
+$('#btnStoreLocator').on('click', function () {
+    mainView.router.loadPage({ url: '#', ignoreCache: true, reload: true });
+});
+
+$('#btnMenuSlide').on('click', function () {
+    mainView.router.loadPage({ url: 'catagories.html', ignoreCache: true, reload: false });
+});
+
+$('#btnHome').on('click', function () {
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: false });
+});
 
 
 

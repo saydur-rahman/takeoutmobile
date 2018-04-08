@@ -1,11 +1,11 @@
 ﻿function dashboardpage() {
     dashboardpageevents();
-    
+
 }
 
 function dashboardpageevents() {
 
-    var iSLoggedIn = function() {
+    var iSLoggedIn = function () {
         if (localStorage.getItem("access_token") == null) {
             mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
             return false;
@@ -15,7 +15,7 @@ function dashboardpageevents() {
     }
 
 
-    var getPoint = function() {
+    var getPoint = function () {
         if (iSLoggedIn()) {
             $.ajax({
                 url: currentPoint,
@@ -36,7 +36,7 @@ function dashboardpageevents() {
         }
     }
 
-    var postPoint = function(invNo) {
+    var postPoint = function (invNo) {
         if (iSLoggedIn()) {
             $.ajax({
                 url: useInvoice + invNo,
@@ -61,9 +61,15 @@ function dashboardpageevents() {
 
 
     $("#btnAddInv").on("click",
-        function() {
+        function () {
             let inv = $("#txtInv").val();
 
             postPoint(inv);
+        });
+
+
+    $('#btnMenu').on("click",
+        function () {
+            mainView.router.loadPage({ url: 'catagories.html', ignoreCache: true, reload: true });
         });
 }

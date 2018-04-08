@@ -15,7 +15,7 @@ function LoginPageEvents() {
         login($('#txtEmail').val(), $('#txtPassword').val());
         ////}
     });
-
+    
 
     //$('#btnLogin').on('click', function () {
     //    var url = "http://blog.doctorola.com/wp-json/posts?page="  + "&filter[posts_per_page]=5&filter[order]=DESC";
@@ -74,6 +74,24 @@ var login = function (username, password) {
         password: password,
         grant_type: 'password'
     }
+    var loadUser = function () {
+        $.ajax({
+            url: userUrl,
+            method: 'GET',
+            contentType: "application/json",
+            headers: {
+                'Authorization': localStorage.getItem("access_token")
+            },
+            success: function (data) {
+                localStorage.setItem("fullname", data.Fullname);
+                $('#txtUserName').html(localStorage.getItem("fullname"));
+            },
+            error: function () {
+
+            }
+
+        });
+    }
 
     $.ajax({
         url: loginUrl,
@@ -86,7 +104,8 @@ var login = function (username, password) {
             console.log(localStorage.getItem("access_token"));
             localStorage.setItem("username", data.userName);
 
-
+            loadUser();
+            
             mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
         },
         error: function (data, textStatus, xhr) {
