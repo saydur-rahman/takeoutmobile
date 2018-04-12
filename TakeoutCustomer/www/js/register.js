@@ -1,8 +1,6 @@
 ﻿
 function registerpage() {
     registerpageevents();
-
-    
 }
 
 function registerpageevents() {
@@ -31,6 +29,7 @@ function registerpageevents() {
                 login(user.email, user.password);
             },
             error: function (data, textStatus, xhr) {
+                alert("Registraion failed");
             }
 
         });

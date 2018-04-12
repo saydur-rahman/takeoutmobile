@@ -1,19 +1,11 @@
-﻿function dashboardpage() {
+﻿
+function dashboardpage() {
     dashboardpageevents();
 
 }
 
 function dashboardpageevents() {
-
-    var iSLoggedIn = function () {
-        if (localStorage.getItem("access_token") == null) {
-            mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
-            return false;
-        } else {
-            return true;
-        }
-    }
-
+    "use strict";
 
     var getPoint = function () {
         if (iSLoggedIn()) {
@@ -48,9 +40,11 @@ function dashboardpageevents() {
                 success: function (data) {
                     console.log(data);
                     getPoint();
+                    $('#txtInv').val("");
                 },
                 error: function (data, textStatus, xhr) {
                     console.log(data, xhr);
+                    alert("Not a valid invoice number!");
                 }
             });
         }
@@ -62,6 +56,7 @@ function dashboardpageevents() {
 
     $("#btnAddInv").on("click",
         function () {
+
             let inv = $("#txtInv").val();
 
             postPoint(inv);

@@ -1,4 +1,4 @@
-
+'use strict';
 
 var apiBaseUrl = "http://localhost:59198/";
 
@@ -84,7 +84,7 @@ $$(document).on("pageInit", function (e) {
         dynamicNavbar: false
     });
     switch (page.name) {
-        case "loginpage":
+        case "login":
             loginpage(page);
             break;
 
@@ -103,8 +103,23 @@ $$(document).on("pageInit", function (e) {
         case "finished":
             finishedpage(page);
             break;
+
+        case "storeLocator":
+            storeLocatorpage(page);
+            break;
+        case "map":
+            mappage(page);
+            break;
     }
 });
+var iSLoggedIn = function () {
+    if (localStorage.getItem("access_token") === null) {
+        mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
+        return false;
+    } else {
+        return true;
+    }
+}
 
 var regUrl = apiBaseUrl + "api/account/register";
 var loginUrl = apiBaseUrl + "token";
@@ -114,14 +129,16 @@ var catagoryURL = apiBaseUrl + "api/menu/Catagory";
 var finishedURL = apiBaseUrl + "api/menu/Finished/";
 var userUrl = apiBaseUrl + "api/account/GetCustomerInfo";
 var rateUrl = apiBaseUrl + "api/menu/rate/";
+var storeUrl = apiBaseUrl + "api/storelocator/getall";
 
 
 // AND NOW WE INITIALIZE APP
 myApp.init();
 
 
+
 $('#btnStoreLocator').on('click', function () {
-    mainView.router.loadPage({ url: '#', ignoreCache: true, reload: true });
+    mainView.router.loadPage({ url: 'storeLocator.html', ignoreCache: true, reload: false });
 });
 
 $('#btnMenuSlide').on('click', function () {
@@ -129,7 +146,12 @@ $('#btnMenuSlide').on('click', function () {
 });
 
 $('#btnHome').on('click', function () {
-    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: false });
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
+});
+
+$('#btnLogout').on('click', function () {
+    localStorage.setItem("access_token", null);
+    mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
 });
 
 

@@ -37,15 +37,15 @@ function finishedPageEvents() {
                     let selected5 = "";
 
 
-                    if (data[i].Rating == 1)
+                    if (data[i].Rating === 1)
                         selected1 = 'selected';
-                    if (data[i].Rating == 2)
+                    if (data[i].Rating === 2)
                         selected2 = 'selected';
-                    if (data[i].Rating == 2)
+                    if (data[i].Rating === 2)
                         selected3 = 'selected';
-                    if (data[i].Rating == 4)
+                    if (data[i].Rating === 4)
                         selected4 = 'selected';
-                    if (data[i].Rating == 5)
+                    if (data[i].Rating === 5)
                         selected5 = 'selected';
 
                     $('.divFinGrid').append(`

@@ -8,21 +8,57 @@
                 </div>
             </div>
         </div>
-        <div class="page-content text-center">
-            <div class="page-top-cover" style="height: 100px; background-image: url(../img/photos/bg-cover.jpg)" ></div>
-            <div class="col-50 points"></div>
-            <div class="col-50">
-                <button id="btnMenu" class="button button-fill color-black text-thiny center">Menu</button>
+        <div class="page-content">
+            <div class="page-top-cover" style="height: 50px;"></div>
+
+            <div class="row  text-center" style="margin-top: 10px;">
+                <div class="col-50">
+                    <button class="button button-fill color-orange pull-right">
+                        <span class="points"></span>
+                        <span class="flaticon-star"></span>
+                    </button>
+                </div>
+                <div class="col-50 pull-right">
+                    <button id="btnMenu" class="button button-fill color-black text-thiny center">Menu</button>
+                </div>
             </div>
-            
-            <div id="message" class="col-100">Message.......</div>
-            
-            
-            <fieldset>
-                <legend>Use invoice no. to get more points</legend>
-                <input id="txtInv" class="input-field"/>
-                <button id="btnAddInv" class="button button-fill color-orange text-thiny center right">Add invoice</button>
-            </fieldset>
+
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-90" style="font-size:  15pt; border-style:  groove; border-color:  cyan; margin-top: 10px; padding-top: 10px;">
+                    <marquee id="message" class="col-100">Message.......</marquee>
+                </div>
+                <div class="col-5"></div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-90" style="margin-top: 10px;">
+                    <fieldset class=" text-center" style="border-color: orange;">
+                        <label>Use invoice no. to get more points</label>
+                        <input id="txtInv" class="input-field" style="height: 30px; font-size: 15pt;" />
+                        <button id="btnAddInv" class="button button-fill color-orange text-thiny center right"
+                                style="margin-left: 35%; margin-top: 10px; font-size: 15pt;">
+                            Add invoice
+                        </button>
+
+                    </fieldset>
+                </div>
+                <div class="col-5"></div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-5"></div>
+                <div class="col-90" style="margin-top: 10px; width: 90%; height:200px; border-style: solid" id="divAdd">
+                    TEXT
+                </div>
+                <div class="col-5"></div>
+            </div>
+
         </div>
     </div>
 </div>
