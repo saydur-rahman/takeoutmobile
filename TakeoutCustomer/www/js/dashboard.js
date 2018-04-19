@@ -39,6 +39,7 @@ function dashboardpageevents() {
                 },
                 success: function (data) {
                     console.log(data);
+                    alert("You received " + data.Points + " Points");
                     getPoint();
                     $('#txtInv').val("");
                 },
@@ -51,7 +52,33 @@ function dashboardpageevents() {
     }
 
 
+    var loadAdd = function () {
+        $('#divAdds').html("");
+        if (iSLoggedIn()) {
+            $.ajax({
+                url: addUrl,
+                method: 'GET',
+                headers: {
+                    'Authorization': localStorage.getItem("access_token")
+                },
+                success: function (data) {
+                    console.log(data);
+                    $('#message').html(data.fOffer.message);
+
+                    for (let i = 0; i < data.fpaAdds.length; i++) {
+                        $('#divAdds').append(`
+                    <img class="mySlides" src="`+ imageBaseUrl + `images/advertiseimage/` + data.fpaAdds[i].image + `" style="width:100%; display: none; height:195px;">
+`);
+                    }
+                }
+            });
+        }
+    }
+
+
     getPoint();
+    loadAdd();
+
 
 
     $("#btnAddInv").on("click",
@@ -67,4 +94,26 @@ function dashboardpageevents() {
         function () {
             mainView.router.loadPage({ url: 'catagories.html', ignoreCache: true, reload: true });
         });
+
+    
+
+
+    //document.addEventListener("deviceready", carousel, false);
+    var myIndex = 0;
+
+    function carousel() {
+        
+        var i;
+        var x = $(document).find('.mySlides');
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+
+    setTimeout(carousel, 5000);
+    
 }

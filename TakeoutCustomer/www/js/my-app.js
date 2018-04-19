@@ -1,6 +1,10 @@
 'use strict';
 
-var apiBaseUrl = "http://localhost:59198/";
+
+var imageBaseUrl = "http://beta.bdtakeout.com/";
+//var apiBaseUrl = "http://localhost:59198/";
+var apiBaseUrl = "http://api.bdtakeout.com/";
+
 
 /*===============================================*/
 /* APP INIT                                          */
@@ -110,16 +114,56 @@ $$(document).on("pageInit", function (e) {
         case "map":
             mappage(page);
             break;
+        case "about":
+            mappage(page);
+            break;
     }
 });
 var iSLoggedIn = function () {
     if (localStorage.getItem("access_token") === null) {
-        mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
+        //mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
         return false;
     } else {
         return true;
     }
 }
+
+console.log(iSLoggedIn());
+
+if (!iSLoggedIn()) {
+    
+    mainView.router.loadPage({ url: 'index.html', ignoreCache: true, reload: false });
+    //consolo.log(localStorage.getItem("fullname"));
+    //$('#txtUserName').html(localStorage.getItem("fullname"));
+}
+else {
+    //consolo.log(localStorage.getItem("fullname"));
+    $('#txtUserName').html(localStorage.getItem("fullname"));
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
+}
+
+document.addEventListener("deviceready", onDeviceReady, false); 
+function onDeviceReady() {
+    // Register the event listener 
+    document.addEventListener("backbutton", onBackKeyDown, false);
+} 
+
+function onBackKeyDown() {
+    mainView.router.back();
+}
+
+$('.icon-back').on('click', function () {
+    mainView.router.back();
+});
+
+
+//navigator.Backbutton.goBack(function () {
+//    console.log('success')
+//}, function () {
+//    console.log('fail')
+//});
+
+
 
 var regUrl = apiBaseUrl + "api/account/register";
 var loginUrl = apiBaseUrl + "token";
@@ -130,6 +174,8 @@ var finishedURL = apiBaseUrl + "api/menu/Finished/";
 var userUrl = apiBaseUrl + "api/account/GetCustomerInfo";
 var rateUrl = apiBaseUrl + "api/menu/rate/";
 var storeUrl = apiBaseUrl + "api/storelocator/getall";
+var addUrl = apiBaseUrl + "api/add";
+
 
 
 // AND NOW WE INITIALIZE APP
@@ -150,8 +196,12 @@ $('#btnHome').on('click', function () {
 });
 
 $('#btnLogout').on('click', function () {
-    localStorage.setItem("access_token", null);
+    localStorage.removeItem("access_token");
     mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
+});
+
+$('#btnAbout').on('click', function () {
+    mainView.router.loadPage({ url: 'about.html', ignoreCache: true, reload: false });
 });
 
 

@@ -6,7 +6,6 @@ function loginpage () {
 
 
 function login(username, password) {
-
     console.log("login clicked!");
     let loginData = {
         username: username,
@@ -15,7 +14,7 @@ function login(username, password) {
     }
 
     var loadUser = function () {
-        $$.ajax({
+        $.ajax({
             url: userUrl,
             method: 'GET',
             contentType: "application/json",
@@ -34,7 +33,7 @@ function login(username, password) {
         });
     }
 
-    $$.ajax({
+    $.ajax({
         url: loginUrl,
         method: 'POST',
         contentType: "application/json",
@@ -58,7 +57,6 @@ function login(username, password) {
 }
 function loginPageEvents() {
     $('#btnLogin').click(function () {
-        alert("Clicked");
         login($('#txtEmail').val(), $('#txtPassword').val());
     });
 }

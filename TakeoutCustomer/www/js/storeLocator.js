@@ -34,9 +34,9 @@ function storeLocatorPageEvents() {
                                 <label style="margin-left: 25%" class="divName">Takeout `+ data[i].Name + `</label>
 
                             </div>
-                            <div class="card-content card-content-padding divAddress">Abedin Tower, 1st Floor, Road No 17, Plot No.35 Kemal Ataturk Avenue, Banani, Dhaka 1213, Bangladesh</div>
-                            <a href = "geo:`+ data[i].GeoLocation.Latitude + `,` + data[i].GeoLocation.Longitude + `" lat=` + data[i].GeoLocation.Latitude + ` long=` + data[i].GeoLocation.Longitude + ` class="button button-fill color-deeporange text-extrat-thiny center" style="margin-left: 25%;margin-top: 10px;margin-right: 25%;">View on map</a>
-                            <a class="card-footer" href="tek:`+ phone +`">
+                            <div class="card-content card-content-padding divAddress">`+ data[i].Address + `</div>
+                            <a lat=` + data[i].GeoLocation.Latitude + ` long=` + data[i].GeoLocation.Longitude + ` class="button button-fill color-deeporange text-extrat-thiny center btn-view-map" style="margin-left: 25%;margin-top: 10px;margin-right: 25%;">Get Directions</a>
+                            <a class="card-footer btn-phone" phone=` + phone + `>
                                 <div class="row" style="margin-left: 8%">
                                     <div class="col-30"></div>
                                     <div class="col-20">
@@ -51,6 +51,7 @@ function storeLocatorPageEvents() {
                 </div>
 `);
                     //href = "geo:`+ data[i].GeoLocation.Latitude + `, ` + data[i].GeoLocation.Longitude + `"
+                    //href = "tel:`+ phone +`"
                 }
             }
         });
@@ -63,11 +64,36 @@ function storeLocatorPageEvents() {
         function() {
             localStorage.setItem("latitude", parseFloat($(this).attr('lat')));
             localStorage.setItem("longitude", parseFloat($(this).attr('long')));
+            
+            //console.log(localStorage.getItem("latitude") + ',' + localStorage.getItem("longitude"));
 
-            mainView.router.loadPage({ url: 'map.html', ignoreCache: true, reload: true });
+            var geocoords = localStorage.getItem("latitude") + ',' + localStorage.getItem("longitude");
+            console.log(geocoords);
 
-            console.log(localStorage.getItem("latitude") + ' ' + localStorage.getItem("longitude"));
+
+            var platform = device.platform.toLowerCase();
+            console.log(platform);
+
+            launchnavigator.navigate([localStorage.getItem("latitude"), localStorage.getItem("longitude")], {
+            });
+            
         });
+
+    $(document).on('click', '.btn-phone', function () {
+        let number = $(this).attr("phone");
+
+        console.log(number);
+
+        window.plugins.CallNumber.callNumber(onSuccess, onError, number, true);
+
+        function onSuccess(result) {
+            console.log("Success:" + result);
+        }
+
+        function onError(result) {
+            console.log("Error:" + result);
+        }
+    });
 }
 
 

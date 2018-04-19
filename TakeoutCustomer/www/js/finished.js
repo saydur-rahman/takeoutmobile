@@ -55,7 +55,7 @@ function finishedPageEvents() {
                                 <div class="row">
                                     <div class="col-100 row">
                                         <div class="restaurant-img col-50">
-                                            <img src="`+ data[i].Image + `">
+                                            <img src="`+ imageBaseUrl + `images/productimage/` + data[i].Image + `">
                                         </div>
                                         <div class="col-50"> 
 
@@ -99,12 +99,12 @@ function finishedPageEvents() {
                     $('.divFinTab').append(`
 							<div class="col-50">
 								<div class="restaurant-grid">
-									<img src="`+ data[i].Image + `" alt="restaurant">
+									<img src="`+ imageBaseUrl + `images/productimage/` + data[i].Image + `" alt="restaurant">
                                     <h6>`+ data[i].Name + `</h6>
                                 
                                     <div class="row">
                                         <label class="gray-text text-thiny col-70">Rating: </label>
-                                         <select class="gray-text text-thiny col-30" >
+                                         <select class="gray-text text-thiny col-30 selectedRating" >
                                               <option `+ selected1 + ` value="1">1</option>
                                               <option  `+ selected2 + ` value="2">2</option>
                                               <option `+ selected3 + ` value="3">3</option>
@@ -118,7 +118,7 @@ function finishedPageEvents() {
                                        <label class="gray-text text-thiny col-80">Your Rating: </label>
                                        <div class="gray-text text-thiny col-20" >`+ data[i].CustomerRating + `</div>
                                     </div>
-									<a href="#" class="button button-fill color-deeporange text-extrat-thiny">Rate this item</a>
+									<a href="#" finId=`+ data[i].FinId + ` class="button button-fill color-deeporange text-extrat-thiny btnRate1">Rate this item</a>
 								</div>
 							</div>
 `);
@@ -138,6 +138,27 @@ function finishedPageEvents() {
         var finId = $(this).attr('finId');
         var rating = $(this).parent().parent().parent().find('.selectedRating').val();
         console.log(finId);
+        $.ajax({
+            url: rateUrl + finId + '/' + rating,
+            method: 'POST',
+            contentType: "application/json",
+            headers: {
+                'Authorization': localStorage.getItem("access_token")
+            },
+            success: function (data) {
+                loadFinished();
+            },
+            error: function (data, textStatus, xhr) {
+                console.log(data, xhr);
+            }
+        });
+    });
+
+    $(document).on("click", ".btnRate1", function () {
+        var finId = $(this).attr('finId');
+        var rating = $(this).parent().find('.selectedRating').val();
+        console.log(finId);
+        console.log(rating);
         $.ajax({
             url: rateUrl + finId + '/' + rating,
             method: 'POST',

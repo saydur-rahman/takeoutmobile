@@ -13,11 +13,9 @@ function registerpageevents() {
 
         user.fullname = $('#txtName').val();
         user.email = $('#txtEmail').val();
-        user.phoneNumber = $('#txtPhone').val();
+        user.phoneNumber = $('#txtCode').find(":selected").val() + $('#txtPhone').val();
         user.password = $('#txtPassword').val();
         user.confirmPassword = $('#txtConPassword').val();
-
-
 
 
         $.ajax({
@@ -29,7 +27,7 @@ function registerpageevents() {
                 login(user.email, user.password);
             },
             error: function (data, textStatus, xhr) {
-                alert("Registraion failed");
+                alert("Try with a different email or phone number!");
             }
 
         });

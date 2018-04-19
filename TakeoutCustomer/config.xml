@@ -9,7 +9,10 @@
   <engine name="ios" spec="~4.2.0" />
   <engine name="windows" spec="~4.4.2" />
   <content src="index.html" />
-  <access origin="http://api.bdtakeout.com/" />
+  <access origin="*" />
+  <access origin="tel:*" launch-external="yes" />
+  <access origin="geo:*" launch-external="yes" />
+  <access origin="mailto:*" launch-external="yes" />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="10.0" />
   <!-- Support for Cordova 5.0.0 plugin system -->
@@ -105,4 +108,8 @@
   <plugin name="phonegap-plugin-push" spec="~2.2.2" src="https://github.com/phonegap/phonegap-plugin-push.git" />
   <plugin name="cordova-plugin-device" spec="~2.0.2-dev" src="https://github.com/apache/cordova-plugin-device.git" />
   <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
+  <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="~4.2.0" src="https://github.com/dpa99c/phonegap-launch-navigator.git" />
+  <plugin name="call-number" spec="~1.0.4" src="https://github.com/Rohfosho/CordovaCallNumberPlugin.git" />
+  <plugin name="cordova-plugin-actionsheet" spec="~2.3.3" />
+  <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
 </widget>
