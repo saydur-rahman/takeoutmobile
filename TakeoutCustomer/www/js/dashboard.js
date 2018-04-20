@@ -8,6 +8,8 @@ function dashboardpageevents() {
     "use strict";
 
     var getPoint = function () {
+
+        console.log(localStorage.getItem("access_token"));
         if (iSLoggedIn()) {
             $.ajax({
                 url: currentPoint,

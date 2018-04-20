@@ -139,7 +139,7 @@ if (!iSLoggedIn()) {
 else {
     //consolo.log(localStorage.getItem("fullname"));
     $('#txtUserName').html(localStorage.getItem("fullname"));
-    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: false, reload: true });
 }
 
 document.addEventListener("deviceready", onDeviceReady, false); 
