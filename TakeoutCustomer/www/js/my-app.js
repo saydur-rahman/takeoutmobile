@@ -2,8 +2,8 @@
 
 
 var imageBaseUrl = "http://beta.bdtakeout.com/";
-//var apiBaseUrl = "http://localhost:59198/";
-var apiBaseUrl = "http://api.bdtakeout.com/";
+var apiBaseUrl = "http://localhost:59198/";
+//var apiBaseUrl = "http://api.bdtakeout.com/";
 
 
 /*===============================================*/
