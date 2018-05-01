@@ -26,8 +26,8 @@ function login(username, password) {
                 $('#txtUserName').html(localStorage.getItem("fullname"));
                 console.log("from login success", data);
             },
-            error: function (jqXHR) {
-                alert("Username or password icorrect!");
+            error: function () {
+                alert("Username or password incorrect!");
             }
 
         });
@@ -48,8 +48,9 @@ function login(username, password) {
             
             mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
         },
-        error: function () {
-            alert("Username or password icorrect!");
+        error: function (data) {
+            console.log(data);
+            alert("Username or password incorrect!");
             console.log("incorrect login");
         }
     });

@@ -2,8 +2,8 @@
 
 
 var imageBaseUrl = "http://beta.bdtakeout.com/";
-var apiBaseUrl = "http://localhost:59198/";
-//var apiBaseUrl = "http://api.bdtakeout.com/";
+//var apiBaseUrl = "http://localhost:59198/";
+var apiBaseUrl = "http://api.bdtakeout.com/";
 
 
 /*===============================================*/
@@ -117,6 +117,9 @@ $$(document).on("pageInit", function (e) {
         case "about":
             mappage(page);
             break;
+        case "referral":
+            refpage(page);
+            break;
     }
 });
 var iSLoggedIn = function () {
@@ -175,6 +178,8 @@ var userUrl = apiBaseUrl + "api/account/GetCustomerInfo";
 var rateUrl = apiBaseUrl + "api/menu/rate/";
 var storeUrl = apiBaseUrl + "api/storelocator/getall";
 var addUrl = apiBaseUrl + "api/add";
+var checkRef = apiBaseUrl + "api/referral/checkRef";
+var useRef = apiBaseUrl + "api/referral/userReferral/";
 
 
 
@@ -202,6 +207,13 @@ $('#btnLogout').on('click', function () {
 
 $('#btnAbout').on('click', function () {
     mainView.router.loadPage({ url: 'about.html', ignoreCache: true, reload: false });
+});
+
+
+
+
+$('#btnReferralPage').on('click', function () {
+    mainView.router.loadPage({ url: 'referral.html', ignoreCache: true, reload: true });
 });
 
 

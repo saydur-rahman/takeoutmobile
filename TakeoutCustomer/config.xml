@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.webnsofttech.takeout" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="com.bdtakeout.takeout" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
   <name>Takeout</name>
   <description>Takeout mobile application for customers</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">Peeyal Khondokar; Saydur Rahman</author>
@@ -112,4 +112,5 @@
   <plugin name="call-number" spec="~1.0.4" src="https://github.com/Rohfosho/CordovaCallNumberPlugin.git" />
   <plugin name="cordova-plugin-actionsheet" spec="~2.3.3" />
   <plugin name="cordova-plugin-dialogs" spec="~2.0.1" />
+  <preference name="Orientation" value="portrait" />
 </widget>
