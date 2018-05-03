@@ -1,5 +1,6 @@
 ﻿
 function dashboardpage() {
+    
     dashboardpageevents();
 
 }
@@ -24,6 +25,7 @@ function dashboardpageevents() {
                     $('.points').html(JSON.stringify(data));
                 },
                 error: function (data, textStatus, xhr) {
+                    mainView.router.loadPage({ url: 'index.html', ignoreCache: true, reload: true });
                     console.log(data, xhr);
                 }
             });
@@ -46,6 +48,7 @@ function dashboardpageevents() {
                     $('#txtInv').val("");
                 },
                 error: function (data, textStatus, xhr) {
+                    //mainView.router.loadPage({ url: 'index.html', ignoreCache: true, reload: false });
                     console.log(data, xhr);
                     alert("Not a valid invoice number!");
                 }
@@ -54,7 +57,7 @@ function dashboardpageevents() {
     }
 
 
-    var loadAdd = function () {
+    var loadAdd = function (callback) {
         $('#divAdds').html("");
         if (iSLoggedIn()) {
             $.ajax({
@@ -71,7 +74,9 @@ function dashboardpageevents() {
                         $('#divAdds').append(`
                     <img class="mySlides" src="`+ imageBaseUrl + `images/advertiseimage/` + data.fpaAdds[i].image + `" style="width:100%; display: none; height:195px;">
 `);
+                        
                     }
+                    callback();
                 }
             });
         }
@@ -79,7 +84,7 @@ function dashboardpageevents() {
 
 
     getPoint();
-    loadAdd();
+    loadAdd(carousel);
 
 
 
@@ -115,7 +120,6 @@ function dashboardpageevents() {
         x[myIndex - 1].style.display = "block";
         setTimeout(carousel, 2000); // Change image every 2 seconds
     }
-
-    setTimeout(carousel, 5000);
+    
     
 }

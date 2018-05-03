@@ -35,17 +35,32 @@ var mainView = myApp.addView(".view-main", {
 /*=========================================================*/
 /* SHOW/HIDE PRELOADER FOR REMOTE AJAX LOADED PAGES           */
 /*=========================================================*/
+$(document).on("ajaxStart", function (e) {
+    myApp.showIndicator();
+});
+$(document).on("ajaxComplete", function () {
+    myApp.hideIndicator();
+});
 $$(document).on("ajaxStart", function (e) {
     myApp.showIndicator();
 });
 $$(document).on("ajaxComplete", function () {
     myApp.hideIndicator();
 });
+$$('.panel-left').on('open', function (e) {
+
+    if (localStorage.access_token == "" || localStorage.access_token == undefined || localStorage.access_token == 'undefined') {
+        myApp.params.swipePanel = false;
+    }
+});
 
 /*==================================================================*/
 /* PAGE INIT : HERE, YOU CAN WRITE YOUR CUSTOM JAVASCRIPT/JQUERY    */
 /*==================================================================*/
 $$(document).on("pageInit", function (e) {
+
+
+
     /* SLIDE SLICK */
     /*================================*/
     var page = e.detail.page;
@@ -82,12 +97,25 @@ $$(document).on("pageInit", function (e) {
         ]
     });
 
-    
+
     var mainView = myApp.addView('.view-main', {
         // Enable dynamic Navbar
         dynamicNavbar: false
     });
+    
     switch (page.name) {
+        case "index":
+            if (page.fromPage == 'undefined' || page.fromPage == undefined)
+            {
+                myApp.params.swipePanel = 'left';
+                //alert("false");
+            }
+            else
+            {
+                //alert('left');
+                myApp.params.swipePanel = false;
+            }
+            break;
         case "login":
             loginpage(page);
             break;
@@ -115,7 +143,9 @@ $$(document).on("pageInit", function (e) {
             mappage(page);
             break;
         case "about":
-            mappage(page);
+            //mappage(page);
+            break;
+        case "aboutUs":
             break;
         case "referral":
             refpage(page);
@@ -134,7 +164,7 @@ var iSLoggedIn = function () {
 console.log(iSLoggedIn());
 
 if (!iSLoggedIn()) {
-    
+
     mainView.router.loadPage({ url: 'index.html', ignoreCache: true, reload: false });
     //consolo.log(localStorage.getItem("fullname"));
     //$('#txtUserName').html(localStorage.getItem("fullname"));
@@ -145,18 +175,19 @@ else {
     mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: false, reload: true });
 }
 
-document.addEventListener("deviceready", onDeviceReady, false); 
+document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     // Register the event listener 
     document.addEventListener("backbutton", onBackKeyDown, false);
-} 
+}
 
 function onBackKeyDown() {
     mainView.router.back();
 }
 
 $('.icon-back').on('click', function () {
-    mainView.router.back();
+    if (!(page.name == 'login' || page.name == 'register'))
+        mainView.router.back();
 });
 
 
@@ -189,30 +220,40 @@ myApp.init();
 
 
 $('#btnStoreLocator').on('click', function () {
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'storeLocator.html', ignoreCache: true, reload: false });
 });
 
 $('#btnMenuSlide').on('click', function () {
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'catagories.html', ignoreCache: true, reload: false });
 });
 
 $('#btnHome').on('click', function () {
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
 });
 
 $('#btnLogout').on('click', function () {
-    localStorage.removeItem("access_token");
+    localStorage.clear();
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'login.html', ignoreCache: true, reload: true });
 });
 
 $('#btnAbout').on('click', function () {
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'about.html', ignoreCache: true, reload: false });
+});
+
+$('#btnAboutus').on('click', function () {
+    myApp.closePanel();
+    mainView.router.loadPage({ url: 'aboutUs.Html', ignoreCache: true, reload: false });
 });
 
 
 
-
 $('#btnReferralPage').on('click', function () {
+    myApp.closePanel();
     mainView.router.loadPage({ url: 'referral.html', ignoreCache: true, reload: true });
 });
 

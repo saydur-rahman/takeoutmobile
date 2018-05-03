@@ -1,16 +1,18 @@
 ﻿<div class="pages">
-    <div data-page="dashboard" class="page">
-        <div class="navbar navbar-no-color">
-            <div class="navbar-inner">
-                <div class="center">Takeout - Dashboard</div>
+    <div data-page="dashboard" class="page navbar-fixed" >
+        <div class="navbar">
+            <div class="navbar-inner page-top-cover" style="height: 60px;">
+                <div class="left">
+                    
+                </div>
+                <div class="center">Home</div>
                 <div class="right">
-                    <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+                    <!-- Right link contains only icon - additional "icon-only" class-->
+                    <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
                 </div>
             </div>
         </div>
         <div class="page-content">
-            <div class="page-top-cover" style="height: 50px;"></div>
-
             <div class="row  text-center" style="margin-top: 10px;">
                 <div class="col-50">
                     <button class="button button-fill color-orange pull-right" style="min-width: 150px;min-height: 50px; font-size: 13pt;">
@@ -24,19 +26,16 @@
             </div>
 
             <div class="row">
-                <div class="col-5"></div>
-                <div class="col-90" style="font-size: 10pt;border-style:  groove;border-color:  cyan;margin-top: 10px;padding-top: 5px;">
+                <div class="col-100" style="font-size: 10pt;margin-top: 10px;padding-top: 5px; background-color: yellow;">
                     <marquee id="message" class="col-100"></marquee>
                 </div>
-                <div class="col-5"></div>
-
 
             </div>
 
             <div class="row">
                 <div class="col-5"></div>
                 <div class="col-90" style="margin-top: 10px;">
-                    <fieldset class=" text-center" style="border-color: orange;">
+                    <div class=" text-center" style="">
                         <label>Use invoice no. to get more points</label>
                         <input id="txtInv" class="input-field" style="height: 30px; font-size: 15pt;" />
                         <button id="btnAddInv" class="button button-fill color-orange text-thiny center right"
@@ -44,7 +43,7 @@
                             Add invoice
                         </button>
 
-                    </fieldset>
+                    </div>
                 </div>
                 <div class="col-5"></div>
 
@@ -53,7 +52,7 @@
 
             <div class="row">
                 <div class="col-5"></div>
-                <div class="col-90" style="margin-top: 10px; width: 90%; height:200px; border-style: solid" id="divAdd">
+                <div class="col-90" style="margin-top: 10px; width: 90%; height:200px;" id="divAdd">
                     <div style="max-width:500px" id="divAdds">
                     </div>
                 </div>

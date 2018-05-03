@@ -1,5 +1,6 @@
 ﻿
-function loginpage () {
+function loginpage() {
+    myApp.params.swipePanel = false;
     loginPageEvents();
 }
 
@@ -25,6 +26,7 @@ function login(username, password) {
                 localStorage.setItem("fullname", data.Fullname);
                 $('#txtUserName').html(localStorage.getItem("fullname"));
                 console.log("from login success", data);
+                myApp.params.swipePanel = 'left';
             },
             error: function () {
                 alert("Username or password incorrect!");
