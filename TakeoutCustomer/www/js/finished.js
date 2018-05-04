@@ -62,11 +62,11 @@ function finishedPageEvents() {
                                             <div class="row">
                                                 <label class="gray-text text-thiny col-70">Product Rating: </label>
                                                 <select class="smart-select col-30 selectedRating">
-                                                      <option `+ selected1 + ` value="1">1</option>
-                                                      <option `+ selected2 + ` value="2">2</option>
-                                                      <option `+ selected3 + ` value="3">3</option>
-                                                      <option `+ selected4 + ` value="4">4</option>
                                                       <option `+ selected5 + ` value="5">5</option>
+                                                      <option `+ selected4 + ` value="4">4</option>
+                                                      <option `+ selected3 + ` value="3">3</option>
+                                                      <option `+ selected2 + ` value="2">2</option>
+                                                      <option `+ selected1 + ` value="1">1</option>
                                                 </select> 
                                              </div>
 
@@ -105,11 +105,11 @@ function finishedPageEvents() {
                                     <div class="row">
                                         <label class="gray-text text-thiny col-70">Rating: </label>
                                          <select class="gray-text text-thiny col-30 selectedRating" >
-                                              <option `+ selected1 + ` value="1">1</option>
-                                              <option  `+ selected2 + ` value="2">2</option>
-                                              <option `+ selected3 + ` value="3">3</option>
-                                              <option `+ selected4 + ` value="4">4</option>
                                               <option `+ selected5 + ` value="5">5</option>
+                                              <option `+ selected4 + ` value="4">4</option>
+                                              <option `+ selected3 + ` value="3">3</option>
+                                              <option `+ selected2 + ` value="2">2</option>
+                                              <option `+ selected1 + ` value="1">1</option>
                                          </select>            
                                      </div>
                                      

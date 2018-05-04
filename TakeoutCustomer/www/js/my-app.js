@@ -100,18 +100,16 @@ $$(document).on("pageInit", function (e) {
 
     var mainView = myApp.addView('.view-main', {
         // Enable dynamic Navbar
-        dynamicNavbar: false
+        dynamicNavbar: true
     });
-    
+
     switch (page.name) {
         case "index":
-            if (page.fromPage == 'undefined' || page.fromPage == undefined)
-            {
+            if (page.fromPage == 'undefined' || page.fromPage == undefined) {
                 myApp.params.swipePanel = 'left';
                 //alert("false");
             }
-            else
-            {
+            else {
                 //alert('left');
                 myApp.params.swipePanel = false;
             }
@@ -175,20 +173,11 @@ else {
     mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: false, reload: true });
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    // Register the event listener 
-    document.addEventListener("backbutton", onBackKeyDown, false);
-}
 
-function onBackKeyDown() {
-    mainView.router.back();
-}
 
-$('.icon-back').on('click', function () {
-    if (!(page.name == 'login' || page.name == 'register'))
-        mainView.router.back();
-});
+
+
+
 
 
 //navigator.Backbutton.goBack(function () {
@@ -231,7 +220,7 @@ $('#btnMenuSlide').on('click', function () {
 
 $('#btnHome').on('click', function () {
     myApp.closePanel();
-    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: true });
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: false });
 });
 
 $('#btnLogout').on('click', function () {
@@ -250,12 +239,31 @@ $('#btnAboutus').on('click', function () {
     mainView.router.loadPage({ url: 'aboutUs.Html', ignoreCache: true, reload: false });
 });
 
-
-
 $('#btnReferralPage').on('click', function () {
     myApp.closePanel();
-    mainView.router.loadPage({ url: 'referral.html', ignoreCache: true, reload: true });
+    mainView.router.loadPage({ url: 'referral.html', ignoreCache: true, reload: false });
 });
 
 
 
+//Back Button Function
+$('.left').on('click', function () {
+    if (!(page.name == 'login' || page.name == 'register'))
+        mainView.router.back();
+});
+
+
+$('#leftRef').on('click', function () {
+    mainView.router.loadPage({ url: 'dashboard.html', ignoreCache: true, reload: false });
+});
+
+
+function onBackKeyDown() {
+    mainView.router.back();
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    // Register the event listener 
+    document.addEventListener("backbutton", onBackKeyDown, false);
+}

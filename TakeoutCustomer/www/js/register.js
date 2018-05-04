@@ -80,7 +80,7 @@ function registerpageevents() {
 
 
 
-        if (user.fullname !== '' && user.email !== '' && user.phoneNumber !== '' && user.password !== '' && user.confirmPassword !== '' && user.password === user.confirmPassword) {
+        if ($('#txtCode').find(":selected").val() !== '' && user.fullname !== '' && user.email !== '' && user.phoneNumber !== '' && user.password !== '' && user.confirmPassword !== '' && user.password === user.confirmPassword) {
 
 
             

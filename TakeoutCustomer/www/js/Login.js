@@ -60,6 +60,6 @@ function login(username, password) {
 }
 function loginPageEvents() {
     $('#btnLogin').click(function () {
-        login($('#txtEmail').val(), $('#txtPassword').val());
+        login($('#txtEmailLogin').val(), $('#txtPasswordLogin').val());
     });
 }

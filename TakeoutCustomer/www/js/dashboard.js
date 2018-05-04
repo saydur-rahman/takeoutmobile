@@ -1,13 +1,13 @@
 ﻿
 function dashboardpage() {
-    
+
     dashboardpageevents();
 
 }
 
 function dashboardpageevents() {
     "use strict";
-
+    var activated = false;
     var getPoint = function () {
 
         console.log(localStorage.getItem("access_token"));
@@ -56,6 +56,28 @@ function dashboardpageevents() {
         }
     }
 
+    $.ajax({
+        url: checkRef,
+        method: 'GET',
+        contentType: "application/json",
+        headers: {
+            'Authorization': localStorage.getItem("access_token")
+        },
+        success: function (data) {
+            $('#txtInv').attr('disabled', false);
+            $('#txtInv').val('');
+            $('#divInvBtn').text("Add Invoice");
+            activated = true;
+        },
+        error: function (jqXHR) {
+            $('#txtInv').attr('disabled', true);
+            $('#txtInv').val('Account not activated');
+            $('#divInvBtn').text("Activate");
+            activated = false;
+        }
+    });
+
+
 
     var loadAdd = function (callback) {
         $('#divAdds').html("");
@@ -74,9 +96,10 @@ function dashboardpageevents() {
                         $('#divAdds').append(`
                     <img class="mySlides" src="`+ imageBaseUrl + `images/advertiseimage/` + data.fpaAdds[i].image + `" style="width:100%; display: none; height:195px;">
 `);
-                        
+
                     }
-                    callback();
+
+                    setTimeout(callback(), 2000);
                 }
             });
         }
@@ -88,13 +111,16 @@ function dashboardpageevents() {
 
 
 
-    $("#btnAddInv").on("click",
-        function () {
-
+    $("#btnAddInv").on("click", function () {
+        if (activated == false) {
+            mainView.router.loadPage({ url: 'referral.html', ignoreCache: true, reload: true });
+        }
+        else {
             let inv = $("#txtInv").val();
 
             postPoint(inv);
-        });
+        }
+    });
 
 
     $('#btnMenu').on("click",
@@ -102,14 +128,14 @@ function dashboardpageevents() {
             mainView.router.loadPage({ url: 'catagories.html', ignoreCache: true, reload: true });
         });
 
-    
+
 
 
     //document.addEventListener("deviceready", carousel, false);
     var myIndex = 0;
 
     function carousel() {
-        
+
         var i;
         var x = $(document).find('.mySlides');
         for (i = 0; i < x.length; i++) {
@@ -120,6 +146,6 @@ function dashboardpageevents() {
         x[myIndex - 1].style.display = "block";
         setTimeout(carousel, 2000); // Change image every 2 seconds
     }
-    
-    
+
+
 }
