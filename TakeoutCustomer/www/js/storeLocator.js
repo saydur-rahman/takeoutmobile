@@ -5,11 +5,12 @@ function storeLocatorpage() {
 
 
 function storeLocatorPageEvents() {
+    var dropdown = $("#country");
 
     var loadStores = function () {
         $('#divStores').html("");
         $.ajax({
-            url: storeUrl,
+            url: storeUrl + dropdown.val(),
             method: 'GET',
             contentType: 'application/json',
             headers: {
@@ -42,7 +43,7 @@ function storeLocatorPageEvents() {
                                     <div class="col-20">
                                         <i class="flaticon-phone"></i>
                                     </div>
-                                    <div class="col-50"><label class="divPhone">`+ phone +`</label></div>
+                                    <div class="col-50"><label class="divPhone">`+ phone + `</label></div>
                                 </div>
                             </a>
                         </div>
@@ -55,16 +56,16 @@ function storeLocatorPageEvents() {
                 }
             }
         });
-    }
+    };
 
-    loadStores();
+
 
     $(document).on('click',
         '.btn-view-map',
-        function() {
+        function () {
             localStorage.setItem("latitude", parseFloat($(this).attr('lat')));
             localStorage.setItem("longitude", parseFloat($(this).attr('long')));
-            
+
             //console.log(localStorage.getItem("latitude") + ',' + localStorage.getItem("longitude"));
 
             var geocoords = localStorage.getItem("latitude") + ',' + localStorage.getItem("longitude");
@@ -76,7 +77,7 @@ function storeLocatorPageEvents() {
 
             launchnavigator.navigate([localStorage.getItem("latitude"), localStorage.getItem("longitude")], {
             });
-            
+
         });
 
     $(document).on('click', '.btn-phone', function () {
@@ -93,6 +94,33 @@ function storeLocatorPageEvents() {
         function onError(result) {
             console.log("Error:" + result);
         }
+    });
+
+
+    function loadCountry(callback) {
+        $.ajax({
+            url: counUrl,
+            method: 'GET',
+            contentType: 'application/json',
+            headers: {
+                'Authorization': localStorage.getItem("access_token")
+            },
+            success: function (data) {
+                dropdown.html('');
+                console.log(data);
+                for (let i = 0; i < data.length; i++)
+                    dropdown.append('<option value="' + data[i].Id + '">' + data[i].Name + '</option>');
+
+                callback();
+            },
+            error: function () { }
+        });
+    }
+
+    loadCountry(loadStores);
+
+    dropdown.on('change', function () {
+        loadStores();
     });
 }
 

@@ -39,12 +39,12 @@ function refPageEvents() {
             success: function (data) {
                 alert("Congrats! Your account has been activated");
                 refPageEvents();
-                navigator.notification.alert(
-                    'Your Takeout account is now activated!',  // message
-                    alertDismissed,         // callback
-                    'Activaed',            // title
-                    'Done'                  // buttonName
-                );
+                //navigator.notification.alert(
+                //    'Your Takeout account is now activated!',  // message
+                //    alertDismissed,         // callback
+                //    'Activaed',            // title
+                //    'Done'                  // buttonName
+                //);
             },
             error: function (jqXHR) {
                 alert("Referral code is not correct!");

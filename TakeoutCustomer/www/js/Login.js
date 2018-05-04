@@ -24,7 +24,12 @@ function login(username, password) {
             },
             success: function (data) {
                 localStorage.setItem("fullname", data.Fullname);
+                localStorage.setItem("phone", data.Phone);
+                localStorage.setItem("email", data.Email);
+                localStorage.setItem("Id", data.Id);
+
                 $('#txtUserName').html(localStorage.getItem("fullname"));
+
                 console.log("from login success", data);
                 myApp.params.swipePanel = 'left';
             },
