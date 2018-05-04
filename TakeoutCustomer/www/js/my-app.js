@@ -121,6 +121,9 @@ $$(document).on("pageInit", function (e) {
         case "register":
             registerpage(page);
             break;
+        case "redeem":
+            redeempage(page);
+            break;
 
         case "dashboard":
             dashboardpage(page);
@@ -211,6 +214,11 @@ myApp.init();
 $('#btnStoreLocator').on('click', function () {
     myApp.closePanel();
     mainView.router.loadPage({ url: 'storeLocator.html', ignoreCache: true, reload: false });
+});
+
+$('#btnUsePoint').on('click', function () {
+    myApp.closePanel();
+    mainView.router.loadPage({ url: 'redeem.html', ignoreCache: true, reload: false });
 });
 
 $('#btnMenuSlide').on('click', function () {

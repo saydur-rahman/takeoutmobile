@@ -114,4 +114,6 @@
   <engine name="ios" spec="4.2.0" />
   <engine name="windows" spec="4.4.2" />
   <preference name="android-targetSdkVersion" value="23" />
+  <plugin name="cordova-plugin-social-message" spec="~0.4.0" src="https://github.com/leecrossley/cordova-plugin-social-message.git" />
+  <plugin name="cordova-plugin-device" spec="~2.0.2-dev" src="https://github.com/apache/cordova-plugin-device.git" />
 </widget>
