@@ -287,7 +287,9 @@ function photoBrowser(photo) {
         ],
         type: 'popup',
         theme: 'light',
-        maxZoom: 100
+        maxZoom: 100,
+        toolbar: false,
+        ofText: ''
     });
     myPhotoBrowserPopup.open();
 }

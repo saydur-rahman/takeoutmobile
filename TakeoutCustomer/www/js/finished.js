@@ -87,7 +87,7 @@ function finishedPageEvents() {
                                         <h6>` + data[i].Name + `</h6>
                                     </div>
                                     <div class="col-50">
-                                        <a href="#" data-popup=".popup-rate" finId=`+ data[i].FinId + ` class="button button-fill color-deeporange text-extrat-thiny btnRate">Rate this item</a>
+                                        <a href="#" data-popup=".popup-rate" finId=`+ data[i].FinId + ` class="open-popup button button-fill color-deeporange text-extrat-thiny btnRate">Rate this item</a>
                                     </div>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ function finishedPageEvents() {
                                        <label class="gray-text text-thiny col-80">Your Rating: </label>
                                        <div class="gray-text text-thiny col-20" >`+ data[i].CustomerRating + `</div>
                                     </div>
-									<a href="#" finId=`+ data[i].FinId + ` class="link popup-open button button-fill color-deeporange text-extrat-thiny btnRate1">Rate this item</a>
+									<a href="#" data-popup=".popup-rate" finId=`+ data[i].FinId + ` class="open-popup button button-fill color-deeporange text-extrat-thiny btnRate1">Rate this item</a>
 								</div>
 							</div>
 `);
@@ -137,6 +137,22 @@ function finishedPageEvents() {
         var finId = $(this).attr('finId');
 
         console.log(finId);
+
+
+        //myApp.modal({
+        //    title: 'TEXT',
+        //    text: 'TEXT',
+        //    buttons: [
+        //        {
+        //            text: 'Ok, got it',
+        //            bold: true
+        //        },
+        //    ]
+        //});
+
+        $('#selectRate').css('display', '');
+        $('#selectRate').slideToggle();
+
         //$.ajax({
         //    url: rateUrl + finId + '/' + rating,
         //    method: 'POST',
