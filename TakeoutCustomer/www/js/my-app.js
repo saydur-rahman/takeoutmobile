@@ -278,3 +278,16 @@ function onDeviceReady() {
     // Register the event listener 
     document.addEventListener("backbutton", onBackKeyDown, false);
 }
+
+//Photo Browser
+function photoBrowser(photo) {
+    let myPhotoBrowserPopup = myApp.photoBrowser({
+        photos: [
+            photo
+        ],
+        type: 'popup',
+        theme: 'light',
+        maxZoom: 100
+    });
+    myPhotoBrowserPopup.open();
+}

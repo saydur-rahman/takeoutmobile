@@ -54,7 +54,11 @@ function refPageEvents() {
     })
 
     $('#btnRefShare').on('click', function () {
-        console.log('CLicked', device.platform);
+        console.log('CLicked', $('#txtReferral1').val());
+        var message = {
+            text: $('txtReferral1').val()
+        };
+        window.socialmessage.send(message);
     });
     function alertDismissed() {
         console.log('from notification')
