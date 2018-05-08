@@ -152,6 +152,7 @@ function finishedPageEvents() {
 
         $('#selectRate').css('display', '');
         $('#selectRate').slideToggle();
+        $('#selectRate').click();
 
         //$.ajax({
         //    url: rateUrl + finId + '/' + rating,

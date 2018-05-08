@@ -1,7 +1,7 @@
 {
      "android": {
          "release": {
-             "keystore": "c:\\takeout.keystore",
+             "keystore": "D:\\takeout.keystore",
              "storePassword": "password",
              "alias": "takeout",
              "password" : "password",
