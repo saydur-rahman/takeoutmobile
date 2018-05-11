@@ -39,12 +39,12 @@ function refPageEvents() {
             success: function (data) {
                 alert("Congrats! Your account has been activated");
                 refPageEvents();
-                navigator.notification.alert(
-                    'Your Takeout account is now activated!',  // message
-                    alertDismissed,         // callback
-                    'Activaed',            // title
-                    'Done'                  // buttonName
-                );
+                //navigator.notification.alert(
+                //    'Your Takeout account is now activated!',  // message
+                //    alertDismissed,         // callback
+                //    'Activaed',            // title
+                //    'Done'                  // buttonName
+                //);
             },
             error: function (jqXHR) {
                 alert("Referral code is not correct!");
@@ -54,7 +54,11 @@ function refPageEvents() {
     })
 
     $('#btnRefShare').on('click', function () {
-        console.log('CLicked', device.platform);
+        console.log('CLicked', $('#txtReferral1').val());
+        var message = {
+            text: $('txtReferral1').val()
+        };
+        window.socialmessage.send(message);
     });
     function alertDismissed() {
         console.log('from notification')

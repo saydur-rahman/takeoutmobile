@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/my-app.css">
     <link rel="stylesheet" href="css/Custom.css">
+    <link href="css/jquery-ui.min.css" rel="stylesheet" />
 
 </head>
 
@@ -84,11 +85,11 @@
                 <li>
                     <div class="item-content" id="btnUsePoint">
                         <div class="item-media">
-                            <i class="flaticon-hamburger"></i>
+                            <i class="flaticon-cover"></i>
                         </div>
                         <div class="item-inner no-margin">
                             <div class="item-title text-small">
-                                <a href="#" class="close-panel no-animation">Redeem Points</a>
+                                <a href="#" class="close-panel no-animation">Scan QR</a>
                             </div>
                         </div>
                     </div>
@@ -218,7 +219,13 @@
                                     </a>
                                 </div>
                             </div>-->
-
+                            <select id="selectRate" style="display: none">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="4">4</option>
+                            </select>
                         </div>
                     </div>
 
@@ -235,6 +242,9 @@
     <script type="text/javascript" src="js/framework7.min.js"></script>
     <!-- Path to your app js-->
     <script type="text/javascript" src="js/my-app.js"></script>
+    <script src="scripts/qrcode.min.js"></script>
+    <script src="scripts/jquery.qrcode.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
 
 
     <script type="text/javascript" src="js/Login.js"></script>
@@ -246,6 +256,7 @@
     <script src="js/referral.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6qcYrvYr9VbXIIj8X-mcwRqI00V0YhJE"></script>
     <script src="js/map.js"></script>
+    <script src="js/redeem.js"></script>
 
 </body>
 

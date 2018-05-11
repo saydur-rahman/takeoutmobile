@@ -19,7 +19,7 @@ function catagoryPageEvents() {
                     $('#divCats').append(`
 				<div class="col-50">
 					<div class="food-category">
-                        <img class="icon-category" src="` + imageBaseUrl + `images/categoryimage/` + data[i].Image + `" />
+                        <img class="icon-category imageViewer" src="` + imageBaseUrl + `images/categoryimage/` + data[i].Image + `" />
 						<div class="color-deeporange text-thiny">
 							` + data[i].Name + `
 						</div>
@@ -47,5 +47,10 @@ function catagoryPageEvents() {
         console.log(catId);
         localStorage.setItem("CatId", catId);
         mainView.router.loadPage({ url: 'finished.html', ignoreCache: true, reload: true });
+    });
+    $(document).on("click", ".imageViewer", function () {
+        let image = $(this).attr('src');
+        console.log(image);
+        photoBrowser(image);
     });
 }

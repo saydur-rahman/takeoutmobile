@@ -2,7 +2,7 @@
 
 
 var imageBaseUrl = "http://beta.bdtakeout.com/";
-//var apiBaseUrl = "http://localhost:59198/";
+//ar apiBaseUrl = "http://localhost:59198/";
 var apiBaseUrl = "http://api.bdtakeout.com/";
 
 
@@ -121,6 +121,7 @@ $$(document).on("pageInit", function (e) {
         case "register":
             registerpage(page);
             break;
+
         case "redeem":
             redeempage(page);
             break;
@@ -199,10 +200,12 @@ var catagoryURL = apiBaseUrl + "api/menu/Catagory";
 var finishedURL = apiBaseUrl + "api/menu/Finished/";
 var userUrl = apiBaseUrl + "api/account/GetCustomerInfo";
 var rateUrl = apiBaseUrl + "api/menu/rate/";
-var storeUrl = apiBaseUrl + "api/storelocator/getall";
+var storeUrl = apiBaseUrl + "api/storelocator/getall/";
 var addUrl = apiBaseUrl + "api/add";
 var checkRef = apiBaseUrl + "api/referral/checkRef";
 var useRef = apiBaseUrl + "api/referral/userReferral/";
+var counUrl = apiBaseUrl + "api/country/getAll";
+
 
 
 
@@ -274,4 +277,19 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
     // Register the event listener 
     document.addEventListener("backbutton", onBackKeyDown, false);
+}
+
+//Photo Browser
+function photoBrowser(photo) {
+    let myPhotoBrowserPopup = myApp.photoBrowser({
+        photos: [
+            photo
+        ],
+        type: 'popup',
+        theme: 'light',
+        maxZoom: 100,
+        toolbar: false,
+        ofText: ''
+    });
+    myPhotoBrowserPopup.open();
 }
